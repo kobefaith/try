@@ -4,23 +4,23 @@
  
 int main()
 {
-    ChessBoard board;   
+	ChessBoard *board = ChessBoard::GetInstance();   
     Player playA("aaa",'*');//玩家aaa的棋子形状是'*'
-    playA.attachToBoard(&board);
+    playA.attachToBoard(board);
     Player playB("bbb",'#');//玩家bbb的棋子形状是'#'
-    playB.attachToBoard(&board);    
-    board.show();
+    playB.attachToBoard(board);    
+    board->show();
     while(1)
     {
         playA.setChess();//玩家A放下一个棋子
         if(playA.isWin())
         {   cout<<"Winer!"; break;}       
-        board.show();
+        board->show();
  
         playB.setChess();//玩家B放下一个棋子
         if(playB.isWin())
         {   cout<<"Winer!"; break;}   
-        board.show();
+        board->show();
     }
     return 1;
 }
